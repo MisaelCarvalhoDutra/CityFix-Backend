@@ -22,7 +22,7 @@ Content-Type: application/json
   "cidade": "Irecê"
 }
 
-### Cadastrar usuário 2
+### Cadastrar usuário 3
 POST http://localhost:8080/usuarios
 Content-Type: application/json
 
@@ -32,6 +32,15 @@ Content-Type: application/json
   "senha": "87654000",
   "telefone": "(74)99999-8271",
   "cidade": "Quixaba"
+}
+
+### Login de usuário
+POST http://localhost:8080/usuarios/login
+Content-Type: application/json
+
+{
+  "email": "misael@email.com",
+  "senha": "12345678"
 }
 
 ### Listar todos os usuários
@@ -59,3 +68,4 @@ Content-Type: application/json
 
 ### Remover usuário
 DELETE http://localhost:8080/usuarios/1
+

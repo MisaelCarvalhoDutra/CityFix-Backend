@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import br.com.ifba.cityfix.usuarios.dto.LoginRequest;
+
 //Controlador responsável pelos endpoints de usuários.
 @RestController
 @RequestMapping("/usuarios")
@@ -48,5 +50,14 @@ public class UsuarioController {
     @DeleteMapping("/{id}")
     public void deletar(@PathVariable Long id) {
         usuarioService.deletar(id);
+    }
+
+   //realiza o login do usuário
+    @PostMapping("/login")
+    public Usuario login(@RequestBody LoginRequest loginRequest) {
+        return usuarioService.login(
+                loginRequest.getEmail(),
+                loginRequest.getSenha()
+        );
     }
 }

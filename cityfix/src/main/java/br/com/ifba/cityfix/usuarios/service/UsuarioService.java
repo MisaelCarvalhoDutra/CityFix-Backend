@@ -56,4 +56,15 @@ public class UsuarioService {
         Usuario usuario = buscarPorId(id);
         usuarioRepository.delete(usuario);
     }
+
+    // valida o login do usuário pelo e-mail e senha.
+    public Usuario login(String email, String senha) {
+        Usuario usuario = usuarioRepository.findByEmail(email);
+
+        if (usuario == null || !usuario.getSenha().equals(senha)) {
+            throw new RuntimeException("E-mail ou senha inválidos.");
+        }
+
+        return usuario;
+    }
 }
