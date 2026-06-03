@@ -1,0 +1,61 @@
+### Cadastrar usuário
+POST http://localhost:8080/usuarios
+Content-Type: application/json
+
+{
+  "nome": "Misael",
+  "email": "misael@email.com",
+  "senha": "12345678",
+  "telefone": "(74)99999-9999",
+  "cidade": "Irecê"
+}
+
+### Cadastrar usuário 2
+POST http://localhost:8080/usuarios
+Content-Type: application/json
+
+{
+  "nome": "Jefferson Batista",
+  "email": "jefferson@email.com",
+  "senha": "87654321",
+  "telefone": "(74)99999-9139",
+  "cidade": "Irecê"
+}
+
+### Cadastrar usuário 2
+POST http://localhost:8080/usuarios
+Content-Type: application/json
+
+{
+  "nome": "Gustavo Fenômeno",
+  "email": "gustavo@email.com",
+  "senha": "87654000",
+  "telefone": "(74)99999-8271",
+  "cidade": "Quixaba"
+}
+
+### Listar todos os usuários
+GET http://localhost:8080/usuarios
+
+###
+
+### Buscar usuário por ID
+GET http://localhost:8080/usuarios/3
+
+###
+
+
+### Atualizar usuário
+PUT http://localhost:8080/usuarios/2
+Content-Type: application/json
+
+{
+  "nome": "Jefferson Batista",
+  "telefone": "(74)98888-7777",
+  "cidade": "Irece"
+}
+
+###
+
+### Remover usuário
+DELETE http://localhost:8080/usuarios/1
