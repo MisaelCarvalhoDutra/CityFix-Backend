@@ -67,4 +67,25 @@ public class UsuarioService {
 
         return usuario;
     }
+
+    // Altera a senha somente se a senha atual estiver correta.
+    public Usuario alterarSenha(Long id, String senhaAtual, String novaSenha, String confirmarSenha) {
+        Usuario usuario = buscarPorId(id);
+
+        if (!usuario.getSenha().equals(senhaAtual)) {
+            throw new RuntimeException("Senha atual incorreta.");
+        }
+
+        if (!novaSenha.equals(confirmarSenha)) {
+            throw new RuntimeException("As senhas não coincidem.");
+        }
+
+        if (novaSenha.length() < 8) {
+            throw new RuntimeException("A nova senha deve ter no mínimo 8 caracteres.");
+        }
+
+        usuario.setSenha(novaSenha);
+
+        return usuarioRepository.save(usuario);
+    }
 }

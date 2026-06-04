@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 import br.com.ifba.cityfix.usuarios.dto.LoginRequest;
+import br.com.ifba.cityfix.usuarios.dto.AlterarSenhaRequest;
 
 //Controlador responsável pelos endpoints de usuários.
 @RestController
@@ -58,6 +59,20 @@ public class UsuarioController {
         return usuarioService.login(
                 loginRequest.getEmail(),
                 loginRequest.getSenha()
+        );
+    }
+
+    /**
+     * Altera a senha do usuário.
+     */
+    @PutMapping("/{id}/senha")
+    public Usuario alterarSenha(@PathVariable Long id,
+                                @RequestBody AlterarSenhaRequest request) {
+        return usuarioService.alterarSenha(
+                id,
+                request.getSenhaAtual(),
+                request.getNovaSenha(),
+                request.getConfirmarSenha()
         );
     }
 }

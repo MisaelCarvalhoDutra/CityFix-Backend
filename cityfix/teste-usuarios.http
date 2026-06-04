@@ -66,6 +66,16 @@ Content-Type: application/json
 
 ###
 
+### Alterar senha
+PUT http://localhost:8080/usuarios/1/senha
+Content-Type: application/json
+
+{
+  "senhaAtual": "12345678",
+  "novaSenha": "novaSenha123",
+  "confirmarSenha": "novaSenha123"
+}
+
 ### Remover usuário
 DELETE http://localhost:8080/usuarios/1
 
