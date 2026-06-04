@@ -5,9 +5,10 @@ Content-Type: application/json
 {
   "nome": "Misael",
   "email": "misael@email.com",
-  "senha": "12345678",
+  "senha": "misael123",
   "telefone": "(74)99999-9999",
-  "cidade": "Irecê"
+  "cidade": "Irecê",
+  "tipoUsuario": "ADMINISTRADOR"
 }
 
 ### Cadastrar usuário 2

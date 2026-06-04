@@ -1,0 +1,26 @@
+### Criar categoria
+POST http://localhost:8080/categorias
+Content-Type: application/json
+
+{
+  "nome": "Luz",
+  "descricao": "Problemas em vias públicas"
+}
+
+### Listar categorias
+GET http://localhost:8080/categorias
+
+### Buscar categoria por ID
+GET http://localhost:8080/categorias/2
+
+### Atualizar categoria
+PUT http://localhost:8080/categorias/1
+Content-Type: application/json
+
+{
+  "nome": "Buraco",
+  "descricao": "Buracos, crateras e danos nas ruas"
+}
+
+### Deletar categoria
+DELETE http://localhost:8080/categorias/1

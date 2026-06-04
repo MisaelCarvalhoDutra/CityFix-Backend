@@ -44,7 +44,13 @@ public class UsuarioService {
     public Usuario atualizar(Long id, Usuario usuarioAtualizado) {
         Usuario usuario = buscarPorId(id);
 
+        if (!usuario.getEmail().equals(usuarioAtualizado.getEmail())
+                && usuarioRepository.existsByEmail(usuarioAtualizado.getEmail())) {
+            throw new RuntimeException("E-mail já cadastrado.");
+        }
+
         usuario.setNome(usuarioAtualizado.getNome());
+        usuario.setEmail(usuarioAtualizado.getEmail());
         usuario.setTelefone(usuarioAtualizado.getTelefone());
         usuario.setCidade(usuarioAtualizado.getCidade());
 
