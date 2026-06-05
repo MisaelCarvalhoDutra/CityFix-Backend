@@ -1,0 +1,29 @@
+
+### Criar denúncia
+POST http://localhost:8080/denuncias
+Content-Type: application/json
+
+{
+  "titulo": "Buraco na via",
+  "descricao": "Buraco grande na rua causando risco para motoristas.",
+  "localizacao": "Rua das Flores, Centro",
+  "categoriaId": 1,
+  "usuarioId": 1
+}
+
+###
+
+### Listar denúncias
+GET http://localhost:8080/denuncias
+
+###
+
+### Buscar denúncia por ID
+GET http://localhost:8080/denuncias/1
+
+###
+
+GET http://localhost:8080/denuncias/usuario/1
+
+### Deletar denúncia
+DELETE http://localhost:8080/denuncias/1

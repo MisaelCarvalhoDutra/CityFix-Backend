@@ -1,0 +1,12 @@
+### Listar notificações do usuário
+GET http://localhost:8080/notificacoes/usuario/1
+
+###
+
+### Contar notificações não lidas
+GET http://localhost:8080/notificacoes/usuario/1/nao-lidas
+
+###
+
+### Marcar como lida
+PUT http://localhost:8080/notificacoes/1/lida
