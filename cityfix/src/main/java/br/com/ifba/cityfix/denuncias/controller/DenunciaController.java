@@ -2,14 +2,13 @@ package br.com.ifba.cityfix.denuncias.controller;
 
 import br.com.ifba.cityfix.denuncias.dto.DenunciaDTO;
 import br.com.ifba.cityfix.denuncias.entity.Denuncia;
+import br.com.ifba.cityfix.denuncias.entity.enums.PrioridadeDenuncia;
+import br.com.ifba.cityfix.denuncias.entity.enums.StatusDenuncia;
 import br.com.ifba.cityfix.denuncias.service.DenunciaService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-
-import br.com.ifba.cityfix.denuncias.entity.enums.StatusDenuncia;
-import br.com.ifba.cityfix.denuncias.entity.enums.PrioridadeDenuncia;
 
 import java.util.List;
 
@@ -42,17 +41,10 @@ public class DenunciaController {
             @RequestParam(required = false) Double longitude,
             @RequestParam(required = false) MultipartFile[] imagens
     ) {
-        return service.salvar(
-                titulo,
-                descricao,
-                localizacao,
-                categoriaId,
-                usuarioId,
-                latitude,
-                longitude,
-                imagens
-        );
+        return service.salvar(titulo, descricao, localizacao, categoriaId, usuarioId,
+                latitude, longitude, imagens);
     }
+
     @PutMapping("/{id}/status")
     public Denuncia atualizarStatus(
             @PathVariable Long id,
@@ -60,6 +52,32 @@ public class DenunciaController {
             @RequestParam PrioridadeDenuncia prioridade
     ) {
         return service.atualizarStatus(id, status, prioridade);
+    }
+
+    @PutMapping("/{id}")
+    public Denuncia atualizar(
+            @PathVariable Long id,
+            @RequestBody @Valid DenunciaDTO dto
+    ) {
+        return service.atualizar(id, dto);
+    }
+
+    // ── Novo: adicionar imagens a uma denúncia existente ──
+    @PostMapping(value = "/{id}/imagens", consumes = "multipart/form-data")
+    public Denuncia adicionarImagens(
+            @PathVariable Long id,
+            @RequestParam MultipartFile[] imagens
+    ) {
+        return service.adicionarImagens(id, imagens);
+    }
+
+    // ── Novo: remover uma imagem específica ──
+    @DeleteMapping("/{id}/imagens/{imagemId}")
+    public Denuncia removerImagem(
+            @PathVariable Long id,
+            @PathVariable Long imagemId
+    ) {
+        return service.removerImagem(id, imagemId);
     }
 
     @DeleteMapping("/{id}")

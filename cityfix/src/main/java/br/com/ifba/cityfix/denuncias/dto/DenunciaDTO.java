@@ -23,4 +23,8 @@ public class DenunciaDTO {
 
     @NotNull(message = "O usuário é obrigatório")
     private Long usuarioId;
+
+    // Coordenadas opcionais — atualizadas quando o usuário seleciona pelo mapa
+    private Double latitude;
+    private Double longitude;
 }

@@ -1,0 +1,19 @@
+### Criar comentário
+POST http://localhost:8080/comentarios
+Content-Type: application/json
+
+{
+  "texto": "Teste",
+  "usuarioId": 5,
+  "denunciaId": 1
+}
+
+###
+
+### Buscar usuário 5
+GET http://localhost:8080/usuarios/5
+
+###
+
+### Buscar denúncia 1
+GET http://localhost:8080/denuncias/1

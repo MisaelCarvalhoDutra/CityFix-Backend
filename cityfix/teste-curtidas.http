@@ -1,0 +1,29 @@
+### Curtir denúncia
+POST http://localhost:8080/curtidas
+Content-Type: application/json
+
+{
+  "usuarioId": 1,
+  "denunciaId": 1
+}
+
+###
+
+### Ver total de curtidas da denúncia 1
+GET http://localhost:8080/curtidas/denuncia/1/total
+
+###
+
+### Ver se usuário 1 curtiu denúncia 1
+GET http://localhost:8080/curtidas/denuncia/1/usuario/1
+
+###
+
+### Descurtir denúncia
+DELETE http://localhost:8080/curtidas
+Content-Type: application/json
+
+{
+  "usuarioId": 1,
+  "denunciaId": 1
+}
